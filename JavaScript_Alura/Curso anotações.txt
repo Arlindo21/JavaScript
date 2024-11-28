@@ -1,0 +1,178 @@
+					JavaScript
+		Declarar variaveis 
+	         -deve-se sempre começar o com let 
+	         ex: 
+	           let numero=5; Sem aspas indicam que é um Int ou double
+	           let nome = "Lima"; com aspas indicam String ou char 
+	           
+	           alert- comando de Script ou uma caixa de menssagem
+	           prompt- Comando de (Interação com o usuario caixa de resposta)
+	           console.log- trasmitira o resultado ou a menssagem no conssole web.
+	           
+     	Concatenação 
+     	  para fazermos a concatenação no javaScript entre varios metodos podemos utilizar o Templane String usa-se acrases(acentos agudos) e dentro dos acrases Simbolo de dolar $ e dentro de chaves({}) a variavel diferente de java usamos o (+) em JavaScript 
+       Condições
+        nunca mudam If(se)/else(senao) que muda por em alguns casos são as instruçoes de comandos e o teste logico. 
+       
+
+ATT: Como toda Línguagem depois de cada linha de comnado ou finalização de uma intrução fechar sempre com Ponto e virgula(;).
+
+				Loops e tentativas 
+	AO criar tentivas criou-se mas uma condição se dentro do else 
+	para poder fazer a leitura e imprimir a menssagem se está distante ou proximo da palavra certa 
+	ex 
+	if(comandos){intrução}else{if(comando){intrução}else{intruçaõ}}
+	
+	
+enquanto(while)
+      enquanto não atingir a resposta certa repita ou executa.	
+   att: Para poder executar e não ficarmos em um loop infinito se ouver um if(se) devemos passar tudo para a condição while.
+   
+   
+   Operadores 
+   Não é igual != ;
+   Maior > ;
+   Igual ==;
+   
+   Utilizando Break 
+ é usado quando queremos determinar um limite para o while caso a resposta seja correta
+ 
+ 04-Boas Praticas 
+           
+                   		Formas de reduzir os If que foram repitods varias vezes em um codigo.
+   operador ternário 
+        operador ternario em um codigo ou comando que a liguagem lé da mesma forma que escrevemos o codigo.(Como uma linguagem natural.)
+        ex:  let Paltentativas = tentativas >1 ? "tentativas" : "tentativa";
+         E o codigo fica semelhante a um texto  e tudo que vier depoius da interrogação(?) sera considerado uma condição caso.
+         onde Dois Pontos(:)se nao  ;
+         
+         
+#Math rondon
+--> A função Math.random() retorna um número pseudo-aleatório no intervalo [0, 1[, ou seja, de 0 (inclusivo) até, mas não incluindo, 1 (exclusivo) , que depois você pode dimensionar para um intervalo desejado. A implementação seleciona uma semente para o algoritmo de geração de números aleatórios; esta semente não pode ser escolhida ou reatribuída.
+
+ou seja ele vai sempre gerar um numero maior que(>) 0 e menor que(<) 1 mas podemos dimensionar os números que ele pode gerar. 
+
+//parseInt(Math.random() * 10 + 1) Devemos passar para inteiro para retornar um numero inteiro sem casa decimais.
+
+
+--> Documentção do JavaScript onde podemos encontrar como o JavaScript Funciona. https://developer.mozilla.org/pt-BR/docs/Web/JavaScript <--
+
+
+				-->Funções e Lista<--
+ # Manipulando textos
+	Podemos fazer alterações no html com o javascript usando alguns comandos 
+	Ex: let titulo= document.querySelector("h1");
+ 	      titulo.innerHTML ="Jogo do número secreto";
+ 	  NO jascript declaramos uma Variavel com o nome titulo e utilizamos o comando (document.querySelector para chamar a tag do HTML)
+ 	  Titulo.(innerHTML diz dentro do HTML) insira. 
+
+#Criando uma função
+Função é uma instrução de que deve executar uma acção ou tem alguma responsabilidade.
+escopo- é o corpo da função ou seja o que deve fazer. 
+	ex: function(){
+	//Escopo ou corpo da função
+	}
+	
+				 Funções com parametros
+	Com funções podemos evitar repetição  e diminuir as linhas de codigos.
+	onde criamos uma função e dentro dp parenterses criamos o parametro o que ela. e depois o que queremos que ela execute.
+	function exibirTextoNaTela(tag, texto){
+   let campo=document.querySelector(tag);
+   campo.innerHTML= texto;
+
+ }
+ exibirTextoNaTela("h1","Jogo do número secreto");
+ exibirTextoNaTela("p","Escolha um número entre 1 e 10");
+ exibirTextoNaTela("title","jogo Secreto");
+ 
+				 Funções com retorno. 
+		let numeroSecreto = gerarNumeroAleatorio();
+let tentativas=1;
+
+function exibirTextoNaTela(tag , texto){
+   let campo=document.querySelector(tag);
+   campo.innerHTML= texto;
+}
+
+ exibirTextoNaTela("h1","Jogo do número secreto");
+ exibirTextoNaTela("p","Escolha um número entre 1 e 10");
+  
+ function verificarChute(){
+   chute = document.querySelector("input").value;
+   if(chute==numeroSecreto){
+    exibirTextoNaTela("h1","Acertou");
+     palavraTentativa = tentativas>1 ? "Tentativas": "Tentativa";
+    menssagemTentativas =`Você descobriu o número secreto com ${tentativas} ${palavraTentativa} `;
+    exibirTextoNaTela("p",menssagemTentativas);
+   }else{
+    if (chute>numeroSecreto){
+      exibirTextoNaTela("p","O número secreto é menor");
+
+    }else{
+      exibirTextoNaTela("p","O número secreto é maior");
+    }
+    tentativas++;
+   }
+ }
+ function gerarNumeroAleatorio() {
+   return  parseInt(Math.random()* 10 + 1);
+ }
+ 
+								botão Reiniciar
+Criamos uma funçao sem retorno para limapar o campo de texto
+		  limparCampo(){
+      document.querySelector("input");
+      chute.value="";
+    }
+    ao reniciar o jogo criamos uma função sem parametro e dentro da função metemos o que queremos que ela retorne sempre que for clicado o botão novo jogo.
+    function reiniciarJogo(){
+   numeroSecreto=gerarNumeroAleatorio();
+   limparCampo();
+   tentativas=1;
+   exibirTextoNaTela("h1","Jogo do número secreto");
+   exibirTextoNaTela("p","Escolha um número entre 1 e 10");
+    
+}-so que a gente repetiu o mesmo codigo como simplificar criamos uma função para exibir a menssagem inicial
+functio exibirMenssagemIncial(){
+    exibirTextoNaTela("h1","Jogo do número secreto");
+   exibirTextoNaTela("p","Escolha um número entre 1 e 10");
+}
+exibirMenssagemINicial();
+-dentro de chavetas está o que a função deve fazer. e chamamos ela fora de qualquer funcão para poder executar e o parenteses indica que é uma função. 
+    
+Obs: sempr eque quisermos declarar uma função devemos sempre abrir e fechar parenteses.
+ ex:contarCasas(){}-Sem Paremetro porque não tem nada dentro de parenteses
+    contarCasas(1.5)-Com parametro de que vai contar da casa 1 até 5 e no final devemos pedir para retornar com return ContarCasa();. 
+    
+    O javaScript Tem um a particularidade de ler linha por linha então cada intrução ou comando que codificamos ele tem que ter uma sequenciaLOgica para que ele execute de acordo ao nosso dessejo.
+  				Documentação sobre Listas Array
+ para criação de listas utilizamos colchtes[]
+declaramos a variavel e depois []
+	ex   let numero=[1,5,9] 
+              (3) [1, 5, 9]
+Quando utilizamos o .length é para nos retornar sempre a quantidades de elementos que tem na lista ou seja .length=Tamanhop da Lista              
+  	 let numero=[1,5,9]
+	(3) [1, 5, 9]
+	numero.length
+    	3
+ao criar listas começamos sempre a contar de 0 
+ex:[1, 5, 9]
+    0| 1| 2
+    
+att; Se a gente for chamar com o -1 ele sempre retornara o ultimo elemento da lista
+Adicionando novos elementos
+
+Para adicionar um elemento ao final da array, você pode usar o método push.
+
+frutas.push("Morango");
+console.log(frutas); // Saída: ["Maçã", "Uva", "Laranja", "Morango"]
+Removendo o último elemento
+
+Para remover o último elemento, você pode usar o método pop.
+
+frutas.pop();
+console.log(frutas); // Saída: ["Maçã", "Uva", "Laranja"]
+
+				
+				
+	
